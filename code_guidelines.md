@@ -11,15 +11,15 @@ This document aims to:
 
 ## Contents
 
-1. General guidelines
-2. Progressive Enhancement
-3. HTML
-4. CSS
-5. JavaScript
-6. Accessibility
-7. Performance
-8. Browser Support
-9. References
+1. [General guidelines](#general-guidelines)
+2. [Progressive Enhancement](#progressive-enhancement)
+3. [HTML](#html)
+4. [CSS](#css)
+5. [JavaScript](#javascript)
+6. [Accessibility](#accessibility)
+7. [Performance](#performance)
+8. [Browser Support](#browser-support)
+9. [References](#references)
 
 ## General Guidelines
 
@@ -83,7 +83,7 @@ Wrapping inline attributes in quotation marks is optional in the HTML5 specifica
 All markup should be delivered as UTF-8. This should be specified in a meta tag in the head of the document.
 
 ```
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset=UTF-8">
 ```
 
 ### Semantic HTML
