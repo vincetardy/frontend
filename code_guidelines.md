@@ -271,6 +271,7 @@ When using `@extends`, `@includes` and `&` states organise them as follows:
     //states come last, and are separated from the main block by one line of white space.
   }
 }
+```
 
 ### CSS Architecture
 
@@ -278,7 +279,7 @@ All projects should be organised using the following CSS architecture. This allo
 
 Example file structure:
 
-<!-- ```
+```
   /base
     _typography.scss
   /components
@@ -292,7 +293,7 @@ Example file structure:
     _header.scss
   _settings.scss
   _index.scss
-``` -->
+```
 
 
 `_index.scss` contains a list of all of the individual files, imported using SASS's `@import` command.
