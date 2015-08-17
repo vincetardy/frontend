@@ -2,12 +2,12 @@
 
 These guidelines outline the Forward Partners coding style for a constructing a good CSS architecture.
 
-This is a living document, and as such will be continually updated and improved.
+**This is a living document, and as such will be continually updated and improved.**
 
 This document aims to:
 
-1. Ensure code consistsency between the different Forward Partners projects; and
-2. Establish best practices for internal and external developers to follow.
+1. ensure code consistsency between the different Forward Partners projects; and
+2. establish best practices for internal and external developers to follow.
 
 ## Contents
 
@@ -16,23 +16,21 @@ This document aims to:
 3. [HTML](#html)
 4. [CSS](#css)
 5. [JavaScript](#javascript)
-6. [Accessibility](#accessibility)
-7. [Performance](#performance)
-8. [Browser Support](#browser-support)
-9. [References](#references)
+6. [Build Tools](#build-tools)
+7. [Accessibility](#accessibility)
+8. [Performance](#performance)
+9. [Browser Support](#browser-support)
+10. [References](#references)
 
 ## General Guidelines
-
-The guiding principles are as follows:
-
-- Markup should be clear, concise, semantic and valid.
-- Javascript should progressively enhance the user's experience.
 
 Projects are expected to be:
 
 - Developed from a 'mobile-up' perspective;
 - Developed to be progressively enhanced;
 - Developed to be fully accessible (WCAG AA);
+- Markup should be clear, concise, semantic and valid.
+- Javascript should progressively enhance the user's experience.
 
 ### Indentation
 
@@ -40,19 +38,17 @@ Indent all code by 2 spaces. This minimises horizontal whitespace.
 
 ### Readability vs Compression
 
-Code is designed to be read, and subsequently maintained by developers. Therefore use of whitespace and comments are encouraged in order to promote maintainability.
+Code is designed to be read, and subsequently maintained by developers. Use of whitespace and comments are encouraged in order to promote maintainability.
 
-There is no need to purposively compress HTML, CSS of Javascript in the development environment. Minification, concatenation and compression are handled by the frontend build tools prior to deployment (currently Gulp).
+There is no need to purposively compress HTML, CSS or Javascript in the development environment. Minification, concatenation and compression are handled by the frontend build tools prior to deployment (currently Gulp).
 
 ## Progressive Enhancement
 
-It is important that you follow the principles of progressive enhancement. The Government Digital Service explain Progressive Enhancement [here](https://www.gov.uk/service-manual/making-software/progressive-enhancement.html).
+It is important to follow the principles of progressive enhancement. The Government Digital Service explain Progressive Enhancement [here](https://www.gov.uk/service-manual/making-software/progressive-enhancement.html).
 
-Make sure your content is in a logical order. Select the most appropriate HTML tags (and WAI-ARIA attributes) to markup the content. Use an externally linked CSS file to style the page. Enhance elements on the page using unobtrusive, externally linked JavaScript.
+In short, make sure your content is in a logical order. Select the most appropriate HTML tags (and WAI-ARIA attributes) to markup the content. Use an externally linked CSS file to style the page. Enhance elements on the page using unobtrusive, externally linked JavaScript.
 
 ## HTML
-
-### HTML5
 
 Use the HTML5 doctype by default when marking up a page.
 
@@ -64,18 +60,18 @@ This allows us to use WAI-ARIA roles, microdata and validate our pages. This als
 
 We test our markup against the [W3C validator](http://validator.w3.org/), to ensure that the markup is well formed. 100% valid code is not essential, but validation helps identify possible issues when building maintainable, accessible, robust sites as well as debugging code.
 
-UMake full use of the new HTML5 elements such as `main`, `header`, `nav`, `section`, `article`, `aside`, `footer`. However ensure that they are being used correctly. Good guidance can be found on [HTML5doctor.com](http://html5doctor.com/element-index/) element index.
+Make full use of the new HTML5 elements such as `main`, `header`, `nav`, `section`, `article`, `aside`, `footer`. However ensure that they are being used correctly. Good guidance can be found in the [HTML5doctor.com](http://html5doctor.com/element-index/) element index.
 
 ### Attributes
 
-Wrapping inline attributes in quotation marks is optional in the HTML5 specification. However we require the use of double quoation marks around attributes.
+Wrapping inline attributes in quotation marks is optional in the HTML5 specification. However we require the use of double quotation marks around attributes.
 
 ```
 // Good
-<a href="http://www" class="link">Click me</a>
+<a href="http://www.forwardpartners.com" class="link">Click me</a>
 
 // Bad
-<a href=http://www class=link>Click me</a>
+<a href=http://www.forwardpartners.com class=link>Click me</a>
 ```
 
 ### Character Encoding
@@ -88,11 +84,11 @@ All markup should be delivered as UTF-8. This should be specified in a meta tag 
 
 ### Semantic HTML
 
-You are reminded to use markup that represents the semantics of the content being created, in the logical order that the content is displayed in the document. This is the fastest way to ensure you are accessible by default.
+You are reminded to use markup that represents the semantics of the content being created, in the logical order that the content is displayed in the document. This is the fastest way to ensure your code is accessible by default.
 
 The following are guidelines for when a specific element should be used:
 
-Specifying the language of content via the lang attribute which ensures content is read out correctly by screenreaders.
+Specifying the language of content via the lang attribute which ensures content is read out correctly by screen readers.
 
 ```
 <html lang="en-GB">
@@ -104,7 +100,7 @@ Do not use `<br/>` tags to break chunks of text into paragraphs. Use `<p>` tags.
 
 Each page should have one unique `<h1>`. This is normally the page or article title. This is essential for those navigating the page using an assistive device.
 
-Use a semantically correct heading hierarchy. Headings represent the outline for your document and are essential to users of assistive devices in navigating the entirity of the page, so they should be logical.
+Use a semantically correct heading hierarchy. Headings represent the outline for your document and are essential to users of assistive devices in navigating the entirety of the page.
 
 Always use title-case when entering text into headers and titles. Do not use all caps or all lowercase titles in markup, as this is difficult to read. Instead use CSS to transform the text into uppercase/lowercase based on a class name, or element type.
 
@@ -121,7 +117,7 @@ Use THEAD, TBODY, CAPTIONS and TH tags (with the scope attribute) when marking u
 
 ### Forms
 
-Use label fields to label each form field, the for attribute should associate itself with the id of the input field, so users can click the labels. The label and the input should normally be wrapped in a `<div>` element.
+Use label fields to label each form field, the for attribute should associate itself with the `id` of the input field, so users can click the labels. The label and the input should normally be wrapped in a `<div>` element.
 
 ```
 <div>
@@ -134,13 +130,13 @@ Do not use the size attribute on input fields. The size attribute is relative to
 
 ### Microformats
 
-In order to convey more information to search engines, use microformats and/or microdata. An example of this is marking up an hCard or and address.
+In order to convey more information to search engines, use microformats and/or microdata. An example of this is marking up an hCard or address.
 
 ### WAI-ARIA roles
 
 WAI-ARIA landmark roles are important for conveying extra information to users navigating your website using an assistive device such as a screen reader.
 
-A list of the most used [WAI-ARIA landmark roles can be found here]().
+A list of the most used [WAI-ARIA landmark roles can be found here](http://www.w3.org/TR/wai-aria/roles).
 
 This [article by the Paciello Group](http://www.paciellogroup.com/blog/2013/02/using-wai-aria-landmarks-2013/) explains more about WAI-ARIA roles.
 
@@ -162,11 +158,12 @@ For example:
 ```
 <form>
   <label for="first-name">First name:</label>
-  <input id="first-name" type="text" aria-required="true" />
+  <input id="first-name" type="text" aria-required="true" required/>
 </form>
  ```
 
 Live regions are useful to inform screen reader users of dynamic text changes, for example:
+
 ```
 <div aria-live="polite" aria-atomic="true">
 ```
@@ -179,7 +176,7 @@ CSS should be added to the document by referencing external files in the head. D
 
 Use the `<link>` tag rather than the `@import` statement.
 
-All elements are to be styled using class names, no IDs. Avoid styling elements such as `<h1>` in favour of using reusable class names. This is a more flexible approach.
+All elements are to be styled using class names, not IDs. Avoid styling elements such as `<h1>` in favour of using reusable class names. This is a more flexible approach.
 
 ### Reset
 
@@ -221,18 +218,16 @@ We use BEM in order to clarify the relationship that components and subcomponent
 
 Further explanation of this can be found on [CSS Wizardry](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/).
 
-*Additionally*, do not use presentational class names.
+*Additionally*, do not use presentational class names. Try and name the element after what it does, rather than what it looks like, for example, `.button-primary` rather than `.button-red`.
 
 ### SASS
 
-We use the .scss flavour of the SASS preprocessor in order to help make our code more maintainable and accessible to future developers. *Do not use SASS purely for organisational purposes*
+We use the .scss flavour of the SASS preprocessor (in order to keep as close to CSS syntax as possible) in order to help make our code more maintainable and accessible to future developers. *Do not use SASS purely for organisational purposes*
 
-Therefore, when using SASS aim for a shallow heirarchy. The exception is for states where nesting is logical and useful.
-
-For example:
+When using SASS aim for a shallow hierarchy. The exception is for states where nesting is logical and useful. For example:
 
 ```
-// Bad, uneccessary nesting of selectors
+// Bad, unneccessary nesting of selectors
 .block {
   background-color: green;
 
@@ -324,9 +319,9 @@ We are currently adhering to the [Airbnb JavaScript Style Guide](https://github.
 
 ## Accessibility
 
-All web pages must comply to Web Content Accessibility Guidelines (WCAG) 2.0 AA standard both to the letter and in spirit.
+All web pages must comply to [Web Content Accessibility Guidelines (WCAG) 2.0 AA](http://www.w3.org/TR/WCAG20/) standard both to the letter and in spirit.
 
-The four characteristics of accessible web content are:
+Accessible web content should be perceivable, operable, understandable, and robust.
 
 ## Perceivable
 
@@ -352,21 +347,21 @@ The four characteristics of accessible web content are:
 
 - Maximize compatibility with current and future user tools.
 
-## Common Accessibiliy Blunders
+## Common Accessibility Blunders
 
-Please watch out for the following 'accessibility blunder'. These are commonly made and ear easily avoidable. Accessibility is similar to progressive enhancement in that if you start coding with the principle in mind then you need to make very few changes later on in the project.
+Please watch out for the following 'accessibility blunders'. These are commonly made and are easily avoidable. Accessibility is similar to progressive enhancement, if you start coding with the principle in mind then you need to make very few changes later on in the project.
 
 Common blunders include:
 
 Content not being in a logical order in the document. Do not focus on the visual layout and ignore the content hierarchy.
 
-Not using the alternative text ("alt") attribute that conveys the meaning of an image appropriately. Conversely not applying a null attribute if the image is decorative, or of no realy value, e.g. `alt=""`.
+Not using the alternative text ("alt") attribute that conveys the meaning of an image appropriately. Conversely not applying a null attribute if the image is decorative, or of no really value, e.g. `alt=""`.
 
 Not having a text alternative for multimedia content, i.e captions and transcripts.
 
 Using jargon or complicated language instead of simple and clear language.
 
-Not using headings correctly. A page should have one single h1 representing the page title. Other headings should be hierarchichal and allow a screen reader user to get an overview of the content on a page.
+Not using headings correctly. A page should have one single h1 representing the page title. Other headings should be hierarchical and allow a screen reader user to get an overview of the content on a page.
 
 Failing to use the most appropriate semantic elements to mark up content.
 
@@ -374,7 +369,7 @@ Using too many lists and headings which add aural clutter to screen reader users
 
 Failing to mark up forms correctly.
 
-Communicating information by colour alone which will not be percieved by colour blind users.
+Communicating information by colour alone which will not be perceived by colour blind users.
 
 Not having a visual state that shows when an element has focus - i.e not styling :focus the same as :hover.
 
@@ -402,7 +397,7 @@ First, the browser assumes that any script being called may alter the page subst
 
 Secondly, scripts are downloaded asynchronously in order that a library like jQuery arrives before the script that relies on it (your slider plugin).
 
-In a nutshell - to render a page as fast as the browser will allow link to your styles in the head and to prevent JavaScript from stalling the rendering process, call scripts from the bottom. An excpetion is when creating contextual classes that are used for layout such as .js - these need to be in the head to prevent a flash of unstyled content.
+In a nutshell - to render a page as fast as the browser will allow link to your styles in the head and to prevent JavaScript from stalling the rendering process, call scripts from the bottom. An exception is when creating contextual classes that are used for layout such as .js - these need to be in the head to prevent a flash of unstyled content.
 
 ### HTTP Requests
 
@@ -422,7 +417,7 @@ All content must be readable and all functionality must work.
 
 | Browser name | Version | Platform  |
 | ------ | ------ | -----: |
-|  Internet Explorer  |  9,10 |   Windows  |
+|  Internet Explorer  |  9, 10 |   Windows  |
 |  Firefox  |  Latest version  |   Mac/Windows  |
 |  Chrome  |  Latest version |   Mac/Windows  |
 |  Safari  |  5.1+  |   Mac  |
