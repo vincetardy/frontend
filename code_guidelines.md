@@ -1,6 +1,6 @@
 # Code Guidelines
 
-These guidelines outline the Forward Partners coding style for a constructing a good CSS architecture.
+These guidelines outline the Forward Partners coding style for constructing good CSS architecture.
 
 **This is a living document, and as such will be continually updated and improved.**
 
